@@ -8,16 +8,13 @@ import com.amazonaws.services.sns.model.PublishRequest;
 
 @Service
 public class SnsService {
-
-	private final AmazonSNS amazonSNS;
 	
 	@Autowired
-	public SnsService(AmazonSNS amazonSNS) {
-		this.amazonSNS = amazonSNS;
-	}
+	private AmazonSNS amazonSNS;
 
 	public void publishMessageToSnsTopic(String topicArn, String message, String messageGroupId) {
-		PublishRequest publishRequest = new PublishRequest().withTopicArn(topicArn).withMessage(message).withMessageGroupId(messageGroupId);
+		PublishRequest publishRequest = new PublishRequest().withTopicArn(topicArn).withMessage(message)
+				.withMessageDeduplicationId(messageGroupId).withMessageGroupId("1223");
 
 		amazonSNS.publish(publishRequest);
 	}

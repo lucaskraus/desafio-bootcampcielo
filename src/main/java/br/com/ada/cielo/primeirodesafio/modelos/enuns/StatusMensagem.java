@@ -18,9 +18,9 @@ public enum StatusMensagem {
 		return this.descricao;
 	}
 	
-	public StatusMensagem getEnum(String codigo) {
+	public static StatusMensagem getEnum(String codigo) {
 		for(StatusMensagem status : StatusMensagem.values()) {
-			if(status.codigo == codigo) {
+			if(status.codigo.equals(codigo)) {
 				return status;
 			}
 		}

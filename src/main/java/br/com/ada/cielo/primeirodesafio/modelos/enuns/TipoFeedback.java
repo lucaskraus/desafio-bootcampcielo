@@ -18,9 +18,13 @@ public enum TipoFeedback {
 		return this.descricao;
 	}
 	
-	public TipoFeedback getEnum(String codigo) {
+	public String getCodigo() {
+		return this.codigo;
+	}
+	
+	public static TipoFeedback getEnum(String codigo) {
 		for(TipoFeedback tipo : TipoFeedback.values()) {
-			if(tipo.codigo == codigo) {
+			if(tipo.codigo.equals(codigo)) {
 				return tipo;
 			}
 		}
