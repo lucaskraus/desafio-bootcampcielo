@@ -13,30 +13,29 @@ import com.amazonaws.services.sqs.AmazonSQSAsyncClient;
 
 @Configuration
 public class AwsConfig {
-	
-    @Value("${aws.accessKeyId}")
-    private String accessKeyId;
 
-    @Value("${aws.secretKey}")
-    private String secretKey;
+	@Value("${aws.accessKeyId}")
+	private String accessKeyId;
 
-    @Bean
-    AmazonSNS amazonSNS() {
-        BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretKey);
-        return AmazonSNSClient.builder()
-            .withRegion("us-east-1") 
-            .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
-            .build();
-    }
-    
-    @Bean
-    AmazonSQS amazonSQS() {
-    	BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretKey);
-    	return AmazonSQSAsyncClient.asyncBuilder()//
-    			.withRegion("us-east-1")//
-                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
-                .build();
-    }
-  
+	@Value("${aws.secretKey}")
+	private String secretKey;
+
+	@Value("${aws.region}")
+	private String region;
+
+	@Bean
+	AmazonSNS amazonSNS() {
+		BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretKey);
+		return AmazonSNSClient.builder().withRegion(region)
+				.withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+	}
+
+	@Bean
+	AmazonSQS amazonSQS() {
+		BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretKey);
+		return AmazonSQSAsyncClient.asyncBuilder()//
+				.withRegion(region)//
+				.withCredentials(new AWSStaticCredentialsProvider(awsCredentials)).build();
+	}
 
 }

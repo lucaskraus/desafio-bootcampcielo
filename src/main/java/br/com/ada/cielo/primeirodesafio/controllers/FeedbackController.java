@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.ada.cielo.primeirodesafio.components.FeedbackComponent;
-import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackDto;
+import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackDTO;
+import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackVO;
 
 @RestController
 @RequestMapping("/feedback")
@@ -17,7 +18,7 @@ public class FeedbackController {
 	FeedbackComponent component;
 	    
     @PostMapping(path = "/", produces = "application/json")
-    public CustomerFeedbackDto publicarFeeedback(@RequestBody CustomerFeedbackDto feedback) throws Exception {
+    public CustomerFeedbackVO publicarFeeedback(@RequestBody CustomerFeedbackDTO feedback) throws Exception {
     	return component.publicarFeeedback(feedback);
     }
 

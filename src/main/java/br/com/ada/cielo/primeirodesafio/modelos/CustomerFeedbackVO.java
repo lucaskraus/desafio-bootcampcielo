@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerFeedbackDto {
+public class CustomerFeedbackVO {
 	
 	private String tipoFeedback;
 	private String mensagem;

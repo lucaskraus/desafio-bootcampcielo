@@ -18,10 +18,6 @@ public enum TipoFeedback {
 		return this.descricao;
 	}
 	
-	public String getCodigo() {
-		return this.codigo;
-	}
-	
 	public static TipoFeedback getEnum(String codigo) {
 		for(TipoFeedback tipo : TipoFeedback.values()) {
 			if(tipo.codigo.equals(codigo)) {
