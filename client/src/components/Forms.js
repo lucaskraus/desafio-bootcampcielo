@@ -2,7 +2,11 @@ import './Components.scss';
 import Axios from 'axios';
 import { useState, useEffect } from 'react';
 import logo from '../assets/cielo-logo.png';
+import critica from '../assets/critica-icon.png';
+import elogio from '../assets/elogio-icon.png';
+import sugestao from '../assets/sugestao-icon.png';
 import FeedbackCard from './FeedbackCard';
+
 
 
 const Forms = () => {
@@ -36,17 +40,21 @@ const Forms = () => {
 
     return(
         <main>
-            <img src={logo} width='150px' height='150px' alt='Logo da empresa Cielo'></img>
+            <img src={logo} width='250px' height='100px' alt='Logo da empresa Cielo'></img>
             <h2>Seu feedback é muito importante para nós!</h2>
             <p>Preencha o formulário abaixo para nos enviar sua opinião sobre nossos serviços</p>
             <div className='formsBox'>
                 <form method='POST' onSubmit={(e) =>{handleSubmit(e)}}>
-                    <label htmlFor='text'>Tipo de Feedback:</label>
                     <div className='cardsBox'>
-                        <FeedbackCard title={'Sugestão'}/>
-                        <FeedbackCard title={'Elogio'}/>
-                        <FeedbackCard title={'Crítica'}/>
+                        <label htmlFor='card'>Tipo de Feedback:</label>
+                        <div className='cardsBox'>
+                            <FeedbackCard title={'Sugestão'} url={sugestao}/>
+                            <FeedbackCard title={'Elogio'} url={elogio}/>
+                            <FeedbackCard title={'Crítica'} url={critica}/>
+                        </div>
                     </div>
+                    <label htmlFor='sugestao'>Digite abaixo seu feedback:</label>
+                    <textarea type="text"></textarea>
                 </form>
             </div>
         </main>

@@ -3,9 +3,10 @@ import './Components.scss';
 const FeedbackCard = (props) => {
 
     return(
-        <div className='feedbackCard'>
-            <h2>{props.title}</h2>
-        </div>
+        <button className='feedbackCard' name='sugestao'>
+            <span>{props.title}</span>
+            <img src={props.url} alt="Ícone do card" class="icon"></img>
+        </button>
     )
 }
 
