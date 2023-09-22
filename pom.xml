@@ -59,6 +59,11 @@
 	        <artifactId>aws-java-sdk</artifactId>
 	        <version>1.12.551</version> <!-- Verifique a versão mais recente -->
 	    </dependency>
+	    <dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.7.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

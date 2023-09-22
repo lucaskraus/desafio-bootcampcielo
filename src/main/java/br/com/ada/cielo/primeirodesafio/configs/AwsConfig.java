@@ -8,9 +8,11 @@ import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.AmazonSNSClient;
+import com.amazonaws.services.sqs.AmazonSQS;
+import com.amazonaws.services.sqs.AmazonSQSAsyncClient;
 
 @Configuration
-public class SnsConfig {
+public class AwsConfig {
 	
     @Value("${aws.accessKeyId}")
     private String accessKeyId;
@@ -19,12 +21,22 @@ public class SnsConfig {
     private String secretKey;
 
     @Bean
-    public AmazonSNS amazonSNS() {
+    AmazonSNS amazonSNS() {
         BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretKey);
         return AmazonSNSClient.builder()
             .withRegion("us-east-1") 
             .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
             .build();
     }
+    
+    @Bean
+    AmazonSQS amazonSQS() {
+    	BasicAWSCredentials awsCredentials = new BasicAWSCredentials(accessKeyId, secretKey);
+    	return AmazonSQSAsyncClient.asyncBuilder()//
+    			.withRegion("us-east-1")//
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredentials))
+                .build();
+    }
+  
 
 }

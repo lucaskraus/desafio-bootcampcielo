@@ -11,7 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerFeedbackDto {
 	
-	private Long id;
 	private String tipoFeedback;
 	private String mensagem;
 	private String status;

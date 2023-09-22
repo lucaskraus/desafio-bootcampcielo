@@ -2,6 +2,7 @@ package br.com.ada.cielo.primeirodesafio.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.ada.cielo.primeirodesafio.entities.CustomerFeedback;
 import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackDto;
@@ -11,22 +12,27 @@ import br.com.ada.cielo.primeirodesafio.services.SnsService;
 
 @Component
 public class FeedbackComponent {
-	
+
 	@Autowired
 	private SnsService snsService;
-	
+
 	@Autowired
 	private CustomerFeedbackRepository repository;
 
-	public CustomerFeedbackDto publicarFeeedback(CustomerFeedbackDto feedback) {
+	@Transactional
+	public CustomerFeedbackDto publicarFeeedback(CustomerFeedbackDto feedback) throws Exception {
+		try {
 
-		CustomerFeedback entity = CustomerFeedbackDtoBuilder.buildBack(feedback);
-		repository.save(entity);
+			CustomerFeedback entity = CustomerFeedbackDtoBuilder.buildBack(feedback);
+			repository.save(entity);
 
-		snsService.publishMessageToSnsTopic("arn:aws:sns:us-east-1:352245087617:teste-sns.fifo",
-				"aaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "10934932");
-
-		return null;
+			snsService.publishMessageToSnsTopic(entity);
+			
+			return CustomerFeedbackDtoBuilder.build(entity);
+			
+		} catch (Exception e) {
+			throw new Exception("Erro ao enviar mensagem");
+		}
 	}
 
 }

@@ -1,7 +1,6 @@
 package br.com.ada.cielo.primeirodesafio.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,14 +15,9 @@ public class FeedbackController {
 	
 	@Autowired
 	FeedbackComponent component;
-	
-    @GetMapping(path = "/teste", produces = "application/json")
-    public String teste() {
-        return "Teste";
-    }
-    
-    @PostMapping(path = "/")
-    public CustomerFeedbackDto publicarFeeedback(@RequestBody CustomerFeedbackDto feedback) {
+	    
+    @PostMapping(path = "/", produces = "application/json")
+    public CustomerFeedbackDto publicarFeeedback(@RequestBody CustomerFeedbackDto feedback) throws Exception {
     	return component.publicarFeeedback(feedback);
     }
 
