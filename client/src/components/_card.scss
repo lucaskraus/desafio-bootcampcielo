@@ -5,9 +5,11 @@
   max-width: 45rem;
   background-color: #fff;
   border-radius: 8px;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
   gap: 1rem;
+  transition: transform 0.2s ease-in-out;
+  cursor: pointer;
 
   &__type {
     text-align: left;
@@ -30,6 +32,14 @@
     text-align: right;
     font-size: 0.75rem;
     color: #5A646E;
+  }
+
+  &:hover {    
+    transition: all 0.2s ease-in-out;
+
+    @media screen and (min-width: 768px){
+      transform: scale(1.1);
+    }
   }
   
 }
