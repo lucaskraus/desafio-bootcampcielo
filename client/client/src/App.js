@@ -4,7 +4,6 @@ import { Router } from './Router';
 
 function App() {
   
-
   return (
     <BrowserRouter>
       <div className="App">

@@ -1,28 +1,25 @@
+import { useEffect, useCallback, useState } from "react";
 import { Card } from "../components/Card"
+import { api } from "../lib/axios"
 
 export function Dashboard(){
+  const [cards, setCards] = useState([]);
   
-  const cards = [
-    {
-      id: 1,
-      type: "Elogio",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut semper urna. Quisque euismod arcu vel augue dictum, ut commodo nunc lacinia. Integer ullamcorper dui sit amet purus.",
-      status: "Recebido"
-    },
-    {
-      id: 2,
-      type: "Sugestão",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut semper urna. Quisque euismod arcu vel augue dictum, ut commodo nunc lacinia. Integer ullamcorper dui sit amet purus.",
-      status: "Em processamento"
-    },
-    {
-      id: 3,
-      type: "Crítica",
-      message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ut semper urna. Quisque euismod arcu vel augue dictum, ut commodo nunc lacinia. Integer ullamcorper dui sit amet purus.",
-      status: "Finalizado"
-    },
-  ]
   
+  const fetchFeedback = useCallback(async () => {
+    try {
+      const {data} = await api.get("/feedback/")
+      setCards(data)
+    } catch (e) {
+      console.log(e)
+    }   
+    
+  }, []) 
+
+  useEffect(() => {
+    fetchFeedback()
+  }, [fetchFeedback])
+    
   return (
     <div className="cardContainer">
       <h1>Dashboard</h1>       
