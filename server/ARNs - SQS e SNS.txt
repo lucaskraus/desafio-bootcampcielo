@@ -1,0 +1,25 @@
+ARNs - SQS e SNS (Critica, Elogio e Sugestão)
+
+CRITICA
+
+SNS
+arn:aws:sns:us-east-1:352245087617:sns-critica.fifo
+
+SQS
+arn:aws:sqs:us-east-1:352245087617:sqs-critica.fifo
+
+ELOGIO
+
+SNS
+arn:aws:sns:us-east-1:352245087617:sns-elogio.fifo
+
+SQS
+arn:aws:sqs:us-east-1:352245087617:sqs-elogio.fifo
+
+SUGESTAO
+
+SNS
+arn:aws:sns:us-east-1:352245087617:sns-sugestao.fifo
+
+SQS
+arn:aws:sqs:us-east-1:352245087617:sqs-sugestao.fifo
