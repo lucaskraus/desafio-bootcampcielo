@@ -1,23 +1,13 @@
-// Reset
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-// Globals
-
 body {
-  background:  linear-gradient(to bottom right, #00AEEF, #017CEB, #204986);
-  color: #231F20;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 
-body, input, textarea, button {
-  font-family: "Montserrat", "Verdana";
-  font-weight: 400;
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
 }
-
