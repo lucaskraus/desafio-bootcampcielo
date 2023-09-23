@@ -14,18 +14,24 @@ const Forms = () => {
     //Atualiza a requisição via Axios e envia o feedback quando == true.
     const [query, setQuery] = useState(false);
 
-    //Object-based que armazena as informações do formulário.
-    const [feedback, setFeedback] = useState("");
+    // //Object-based que armazena as informações do formulário.
+    // const [feedback, setFeedback] = useState("");
 
     //Define o tipo de feedback.
-    const [tipoFeedback, setTipoFeedback] = useState("");
+    const [tipoFeedback, setTipoFeedback] = useState({
+        mensagem: 'aaaaaa',
+        tipoFeedback: 'C'
+    });;
+
+    
 
     useEffect(() => {
         if (query) {
-            Axios.post("http://localhost:8080/feedback/novo-feedback", {
-            feedback: feedback,
+            Axios.post("http://localhost:8080/feedback", {
+            mensagem: tipoFeedback,
             }).then((response) => {
                 if (response.status === 200 && response.data.length > 0){
+                    console.log("Enviado com sucesso!")
                 };
             }).catch(function(error){
                 console.log(error);
@@ -35,7 +41,8 @@ const Forms = () => {
 
     function handleSubmit(e){
         e.preventDefault();
-        setFeedback(true);
+        // setTipoFeedback(tipoFeedback.mensagem='aaaaaaaa',tio)
+        setQuery(true);
     }
 
     return(
