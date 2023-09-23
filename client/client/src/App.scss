@@ -1,0 +1,30 @@
+// Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Globals
+
+body {
+  background:  linear-gradient(to bottom right, #00AEEF, #017CEB, #204986);
+  color: #231F20;
+  -webkit-font-smoothing: antialiased;
+}
+
+body, input, textarea, button {
+  font-family: "Montserrat", "Verdana";
+  font-weight: 400;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+
