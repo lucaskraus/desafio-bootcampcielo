@@ -1,6 +1,7 @@
 package br.com.ada.cielo.primeirodesafio.components;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -31,11 +32,14 @@ public class FeedbackComponent {
 	@Autowired
 	private CustomerFeedbackRepository repository;
 
+	@Autowired
+	ObjectMapper mapper;
+
 	@Value("${aws.topico.critica}")
-	private String topicoElogio;
+	private String topicoCritica;
 
 	@Value("${aws.topico.elogio}")
-	private String topicoCritica;
+	private String topicoElogio;
 
 	@Value("${aws.topico.sugestao}")
 	private String topicoSugestao;
@@ -61,8 +65,12 @@ public class FeedbackComponent {
 		}
 	}
 
+	public List<CustomerFeedbackVO> buscarFeedbacks(String tipo) {
+		return CustomerFeedbackBuilder.buildVO(repository.findByTipoFeedback(tipo));
+	}
+
 	private void enviarMensagemParaTopico(CustomerFeedback feedback) throws JsonProcessingException {
-		String mensagem = converterMensagem(feedback);
+		String mensagem = mapper.writeValueAsString(feedback);
 		String id = feedback.getId().toString();
 		// TODO:verificar regra
 		String groupID = "topico123";
@@ -70,15 +78,21 @@ public class FeedbackComponent {
 
 	}
 
-	private String converterMensagem(CustomerFeedback feedback) throws JsonProcessingException {
-		ObjectMapper mapper = new ObjectMapper();
-		return mapper.writeValueAsString(feedback);
-	}
-
 	private CustomerFeedback salvarMensagem(CustomerFeedbackDTO feedbackDTO) {
 		CustomerFeedback feedback = CustomerFeedbackBuilder.buildEntity(feedbackDTO, StatusMensagem.RECEBIDO);
 		repository.save(feedback);
 		return feedback;
+	}
+
+	public void processarFeedback(CustomerFeedback feedback) throws InterruptedException {
+		alterarStatus(feedback, StatusMensagem.EM_PROCESSAMENTO);
+		Thread.sleep(30000);
+		alterarStatus(feedback, StatusMensagem.FINALIZADO);
+	}
+
+	private void alterarStatus(CustomerFeedback feedback, StatusMensagem status) {
+		feedback.setStatus(status);
+		repository.save(feedback);
 	}
 
 }

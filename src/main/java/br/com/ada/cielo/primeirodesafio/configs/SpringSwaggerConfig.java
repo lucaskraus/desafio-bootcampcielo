@@ -11,7 +11,6 @@ public class SpringSwaggerConfig {
 
 	@Bean
 	public OpenAPI springShopOpenAPI() {
-
 		return new OpenAPI()//
 				.info(new Info() //
 						.title("aplicacao") //

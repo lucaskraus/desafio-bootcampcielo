@@ -18,7 +18,7 @@ import br.com.ada.cielo.primeirodesafio.components.FeedbackComponent;
 import br.com.ada.cielo.primeirodesafio.entities.CustomerFeedback;
 
 @Component
-public class SQSMessageListenerCritica implements ApplicationListener<ContextRefreshedEvent> {
+public class SQSMessageListenerElogio implements ApplicationListener<ContextRefreshedEvent> {
 
 	private final String PATH_BASE = "https://sqs.%s.amazonaws.com/%s/%s";
 
@@ -37,14 +37,14 @@ public class SQSMessageListenerCritica implements ApplicationListener<ContextRef
     @Value("${aws.id.conta}")
     private String idConta;
     
-	@Value("${aws.queue.critica}")
-	private String queueCritica;
+	@Value("${aws.queue.elogio}")
+	private String queueElogio;
 
 	@Async
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		try {
-			String pathCompleto = String.format(PATH_BASE, region, idConta, queueCritica);
+			String pathCompleto = String.format(PATH_BASE, region, idConta, queueElogio);
 			ReceiveMessageRequest receiveRequest = new ReceiveMessageRequest(pathCompleto);
 			
 			while (true) {

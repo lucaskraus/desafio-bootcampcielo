@@ -18,6 +18,10 @@ public enum StatusMensagem {
 		return this.descricao;
 	}
 	
+	public String getCodigo() {
+		return this.codigo;
+	}
+	
 	public static StatusMensagem getEnum(String codigo) {
 		for(StatusMensagem status : StatusMensagem.values()) {
 			if(status.codigo.equals(codigo)) {
@@ -26,5 +30,9 @@ public enum StatusMensagem {
 		}
 		return null;
 	}
-
+	
+    @Override
+    public String toString() {
+        return this.codigo;
+    }
 }
