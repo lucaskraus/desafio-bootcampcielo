@@ -53,8 +53,10 @@ const Forms = () => {
                             <FeedbackCard title={'Crítica'} url={critica}/>
                         </div>
                     </div>
-                    <label htmlFor='sugestao'>Digite abaixo seu feedback:</label>
+                    <label htmlFor='sugestao'>Digite abaixo sua mensagem:</label>
                     <textarea type="text"></textarea>
+
+                    <button type='submit' className='buttonSubmit'>Enviar Feedback</button>
                 </form>
             </div>
         </main>
