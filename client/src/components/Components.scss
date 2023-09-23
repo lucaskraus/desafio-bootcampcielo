@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Aleo&display=swap');
 
+
+
 $blue: #00AEEF;
 $aleo: 'Aleo', serif;
 
@@ -30,7 +32,7 @@ label{
 label[for='card'] {
     display: block;
     text-align: center;
-    margin-bottom: 10px; /* Ajuste a margem conforme necessário */
+    margin-bottom: 10px; 
 }
 
 .feedbackCard{
@@ -54,15 +56,15 @@ label[for='card'] {
 
 .buttonSubmit {
     background-color: #017CEB;
-    color: #ffffff; /* Cor do texto */
-    padding: 10px 20px; /* Espaçamento interno para ajustar o tamanho do botão */
-    border: none; /* Remove a borda padrão do botão */
-    border-radius: 4px; /* Adiciona cantos arredondados */
-    cursor: pointer; /* Transforma o cursor em uma mãozinha ao passar o mouse */
-    transition: background-color 0.3s ease; /* Efeito de transição suave na cor de fundo */
-    font-size: 14px; /* Tamanho da fonte */
+    color: #ffffff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
+    font-size: 14px; 
   }
   
   .buttonSubmit:hover {
-    background-color: #015EA2; /* Cor de fundo ao passar o mouse */
+    background-color: #015EA2; 
   }
