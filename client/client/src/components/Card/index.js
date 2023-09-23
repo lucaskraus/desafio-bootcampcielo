@@ -1,4 +1,4 @@
-import './Components.scss';
+import '../Components.scss'
 import PropTypes from 'prop-types';
 export function Card({content}){
   return (
