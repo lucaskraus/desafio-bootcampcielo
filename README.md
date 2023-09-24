@@ -1,7 +1,7 @@
 # desafio-bootcampcielo
 Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada Tech.
 
-<img width="600" height="250" alt="script client" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/42014375-62ac-4d73-8493-2f99dc1b29fb">
+<img width="400" height="250" alt="script client" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/42014375-62ac-4d73-8493-2f99dc1b29fb">
 
 > [!WARNING]
 > Para execução do repositório, serão necessárias as seguintes instalações:
@@ -9,7 +9,7 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 Node.JS 
 Java (Foi utilizada a versão JDK 17 para o desenvolvimento do desafio)
 
-##Environment Setup
+# Environment Setup
 
 Para testar a aplicação, será necessário executar dois scripts. Porém, antes da execução, atualize o caminho dos scripts com o diretório onde seu repositório está clonado.
 
@@ -23,7 +23,7 @@ Para testar a aplicação, será necessário executar dois scripts. Porém, ante
 > [!NOTE]
 > Por padrão, o script server.bat irá gerar 10 mensagens fictícias para cada tópico SNS para que seja possível verificar o processamento da fila na aplicação.
 
-##Rotas
+# Rotas
 
 Nosso front-end possuí rotas para interações com o servidor. Aproveite a imersão como um cliente ou colaborador da Cielo!
 
