@@ -45,13 +45,7 @@ const Forms = () => {
         setTipoFeedback(tipo);
     }
 
-    function handleMensagem (e) {
-        setMensagem(e);
-        console.log(tipoFeedback, mensagem);
-    }
-
     function handleSubmit(){
-        console.log("está entrando no handlesubmit");
         setQuery(true);
     }
 
@@ -69,7 +63,7 @@ const Forms = () => {
                         <FeedbackCard title={'Crítica'} url={critica} tipo="C" onTipoChange={handleTipoChange} selectedFeedback={selectedFeedback}/>
                     </div>
                     <label htmlFor='mensagem'>Digite abaixo sua mensagem:</label>
-                    <textarea type="text" name='mensagem' id='mensagem' onChange={(e) =>{handleMensagem(e.target.value)}}></textarea>   
+                    <textarea type="text" name='mensagem' id='mensagem' onChange={(e) =>{setMensagem(e.target.value)}}></textarea>   
                 </form>
 
                 <button type='submit' id='buttonSubmit' onClick={handleSubmit}>Enviar Feedback</button>
