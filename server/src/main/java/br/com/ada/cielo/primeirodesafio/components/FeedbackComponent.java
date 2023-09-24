@@ -66,7 +66,8 @@ public class FeedbackComponent {
 	}
 
 	public List<CustomerFeedbackVO> buscarFeedbacks(String tipo) {
-		return CustomerFeedbackBuilder.buildVO(repository.findByTipoFeedback(tipo));
+		TipoFeedback tipoFeedback = TipoFeedback.getEnum(tipo);
+		return CustomerFeedbackBuilder.buildVO(repository.findByTipoFeedback(tipoFeedback));
 	}
 
 	private void enviarMensagemParaTopico(CustomerFeedback feedback) throws JsonProcessingException {

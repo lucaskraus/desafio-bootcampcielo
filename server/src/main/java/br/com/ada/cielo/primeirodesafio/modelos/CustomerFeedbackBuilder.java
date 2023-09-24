@@ -15,6 +15,7 @@ public class CustomerFeedbackBuilder {
 
 	public static CustomerFeedbackVO buildVO(CustomerFeedback entity) {
 		return CustomerFeedbackVO.builder()//
+				.id(entity.getId())//
 				.tipoFeedback(entity.getTipoFeedback().getDescricao())//
 				.mensagem(entity.getMensagem())//
 				.status(entity.getStatus().getDescricao())//

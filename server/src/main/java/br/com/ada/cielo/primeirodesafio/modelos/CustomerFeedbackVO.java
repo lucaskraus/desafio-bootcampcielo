@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerFeedbackVO {
 	
+	private Long id;
 	private String tipoFeedback;
 	private String mensagem;
 	private String status;

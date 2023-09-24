@@ -7,10 +7,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import br.com.ada.cielo.primeirodesafio.entities.CustomerFeedback;
+import br.com.ada.cielo.primeirodesafio.modelos.enuns.TipoFeedback;
 
 public interface CustomerFeedbackRepository extends JpaRepository<CustomerFeedback, Long> {
-	
+
 	@Query("SELECT cf FROM CustomerFeedback cf WHERE :tipoFeedback IS NULL OR cf.tipoFeedback = :tipoFeedback")
-	List<CustomerFeedback> findByTipoFeedback(@Param("tipoFeedback") String tipoFeedback);
-	
+	List<CustomerFeedback> findByTipoFeedback(@Param("tipoFeedback") TipoFeedback tipoFeedback);
+
 }
