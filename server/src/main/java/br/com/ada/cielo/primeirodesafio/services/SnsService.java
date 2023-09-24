@@ -7,7 +7,10 @@ import org.springframework.stereotype.Service;
 import com.amazonaws.services.sns.AmazonSNS;
 import com.amazonaws.services.sns.model.PublishRequest;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class SnsService {
 
 	private final String PATH_BASE = "arn:aws:sns:%s:%s:%s";
@@ -21,9 +24,12 @@ public class SnsService {
     @Value("${aws.id.conta}")
     private String idConta;
 
+
 	public void publishMessageToSnsTopic(String mensagem, String id, String groupID, String topico) {
-		
+    	
 		String pathCompleto = String.format(PATH_BASE, region, idConta, topico); 
+		
+		log.info("publishMessageToSnsTopic: topico: {}, mensagem: {}", pathCompleto, mensagem);
 
 		PublishRequest publishRequest = new PublishRequest()//
 				.withTopicArn(pathCompleto)//

@@ -10,7 +10,10 @@ import org.springframework.stereotype.Component;
 import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Component
+@Slf4j
 public class SQSMessageListenerCritica extends AbstractSQSMessageListener {
 
 	@Value("${aws.queue.critica}")
@@ -30,7 +33,7 @@ public class SQSMessageListenerCritica extends AbstractSQSMessageListener {
 				}
 			}
 		} catch (Exception e) {
-			Thread.currentThread().interrupt();
+			log.error("#### Erro ao processar mensagem: {}", e);
 		}
 	}
 }

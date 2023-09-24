@@ -25,8 +25,10 @@ import br.com.ada.cielo.primeirodesafio.modelos.enuns.StatusMensagem;
 import br.com.ada.cielo.primeirodesafio.modelos.enuns.TipoFeedback;
 import br.com.ada.cielo.primeirodesafio.repositories.CustomerFeedbackRepository;
 import br.com.ada.cielo.primeirodesafio.services.SnsService;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class FeedbackComponent {
 
 	@Autowired
@@ -59,11 +61,15 @@ public class FeedbackComponent {
 	@Transactional(rollbackFor = Exception.class)
 	public CustomerFeedbackVO publicarFeeedback(CustomerFeedbackDTO feedback) throws Exception {
 		try {
+			log.info("INICIO: publicarFeeedback(), Publicando feedback: {}", feedback);
 			CustomerFeedback entity = salvarMensagem(feedback);
 			this.enviarMensagemParaTopico(entity);
+			
+			log.info("FIM: publicarFeeedback()");
 
 			return CustomerFeedbackBuilder.buildVO(entity);
 		} catch (Exception e) {
+			log.error("#### Erro ao publicar mensagem : {}, erro: {}", feedback, e);
 			throw new Exception("Erro ao enviar mensagem");
 		}
 	}
@@ -90,7 +96,7 @@ public class FeedbackComponent {
 
 	public void processarFeedback(CustomerFeedback feedback) throws InterruptedException {
 		alterarStatus(feedback, StatusMensagem.EM_PROCESSAMENTO);
-		Thread.sleep(30000);
+		Thread.sleep(15000);
 		alterarStatus(feedback, StatusMensagem.FINALIZADO);
 	}
 

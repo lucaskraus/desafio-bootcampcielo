@@ -16,7 +16,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.ada.cielo.primeirodesafio.components.FeedbackComponent;
 import br.com.ada.cielo.primeirodesafio.entities.CustomerFeedback;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 public abstract class AbstractSQSMessageListener implements ApplicationListener<ContextRefreshedEvent> {
 
 	final String PATH_BASE = "https://sqs.%s.amazonaws.com/%s/%s";
@@ -39,9 +41,15 @@ public abstract class AbstractSQSMessageListener implements ApplicationListener<
 	void processarFeedback(Message message, String url) throws Exception {
 		sqs.changeMessageVisibility(url, message.getReceiptHandle(), 60);
 		CustomerFeedback feedback = getFeedback(message.getBody());
+		
+		log.info("INICIO: processarFeedback(), Publicando feedback: {}", feedback);
+		
 		feedbackComponent.processarFeedback(feedback);
 		sqs.deleteMessage(url, message.getReceiptHandle());
-		Thread.sleep(30000);
+		
+		log.info("FIM: processarFeedback()");
+		
+		Thread.sleep(10000);
 	}
 
 	private CustomerFeedback getFeedback(String mensagem) throws JsonProcessingException, JsonMappingException {
