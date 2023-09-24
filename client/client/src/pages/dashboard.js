@@ -22,7 +22,7 @@ export function Dashboard(){
     
   return (
     <div className="cardContainer">
-      <h1>Dashboard</h1>       
+      <h1 className="title">Dashboard</h1>       
       {
         cards.map(card => <Card key={card.id} content={card}/>)
       }
