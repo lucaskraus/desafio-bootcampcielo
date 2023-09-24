@@ -41,7 +41,7 @@ public class FeedbackController {
 	}
 	
 	@GetMapping(path = "/resumo", produces = "application/json")
-	public List<CustomerFeedbackResumoVO> resumoFeedback(@RequestParam(required = false) String tipo) throws Exception {
+	public List<CustomerFeedbackResumoVO> resumoFeedback() throws Exception {
 		return component.resumoFeedback();
 	}
 
