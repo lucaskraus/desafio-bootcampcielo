@@ -9,7 +9,7 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 Node.JS 
 Java (Foi utilizada a versão JDK 17 para o desenvolvimento do desafio)
 
-# Environment Setup
+# Configuração de Ambiente
 
 Para testar a aplicação, será necessário executar dois scripts. Porém, antes da execução, atualize o caminho dos scripts com o diretório onde seu repositório está clonado.
 
@@ -27,4 +27,4 @@ Para testar a aplicação, será necessário executar dois scripts. Porém, ante
 
 Nosso front-end possuí rotas para interações com o servidor. Aproveite a imersão como um cliente ou colaborador da Cielo!
 
-[localhost:3000/feedback](localhost:3000/feedback) - Escolha um tipo de feedback e deixe sua mensagem para ser enviada à fila SQS.
+[localhost:3000/feedback](https://localhost:3000/feedback) - Escolha um tipo de feedback e deixe sua mensagem para ser enviada à fila SQS.
