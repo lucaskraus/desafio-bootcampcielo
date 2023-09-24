@@ -1,19 +1,15 @@
-import { useState } from 'react';
 import './Components.scss';
 
 const FeedbackCard = (props) => {
-    
-    const [tipoFeedback, setTipoFeedback] = useState("");
 
-    function handleClick(e){
-        e.preventDefault();
-        setTipoFeedback(props.title);
+    function handleClick() {
+        props.onTipoChange(props.tipo);
     }
 
     return(
-        <button className='feedbackCard' name='card'id='card' onClick={handleClick}>
+        <button type="button" className={`feedbackCard ${props.tipo === props.selectedFeedback ? 'selected' : ''}`} name='card' id='card' onClick={handleClick}>
             <span>{props.title}</span>
-            <img src={props.url} width='25px' height='25px' alt="Ícone do card" class="icon"></img>
+            <img src={props.url} width='25px' height='25px' alt="Ícone do card" className="icon"></img>
         </button>
     )
 }
