@@ -6,7 +6,7 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 > [!WARNING]
 > Para execução do repositório, serão necessárias as seguintes instalações:
 
-Node.JS 
+Node.JS <br/>
 Java (Foi utilizada a versão JDK 17 para o desenvolvimento do desafio)
 
 # Configuração de Ambiente
