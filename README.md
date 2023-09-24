@@ -30,5 +30,5 @@ Após atualizar os diretórios, execute os scripts.
 
 Nosso front-end possuí rotas para interações com o servidor. Aproveite a imersão como um cliente ou colaborador da Cielo!
 
-[localhost:3000/](https://localhost:3000) - Consulte os feedbacks das filas.
-[localhost:3000/feedback](https://localhost:3000/feedback) - Escolha um tipo de feedback e deixe sua mensagem para ser enviada à fila SQS.<br/>
+[localhost:3000/](https://localhost:3000) - Consulte os feedbacks das filas.<br/>
+[localhost:3000/feedback](https://localhost:3000/feedback) - Escolha um tipo de feedback e deixe sua mensagem para ser enviada à fila SQS.
