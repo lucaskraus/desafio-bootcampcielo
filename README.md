@@ -6,8 +6,8 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 > [!WARNING]
 > Para execução do repositório, serão necessárias as seguintes instalações:
 
-Node.JS <br/>
-Java (Foi utilizada a versão JDK 17 para o desenvolvimento do desafio)
+- Node.JS
+- Java (Foi utilizada a versão JDK 17 para o desenvolvimento do desafio)
 
 # Configuração de Ambiente
 
@@ -21,7 +21,7 @@ Para testar a aplicação, será necessário executar dois scripts. Porém, ante
 
 
 > [!NOTE]
-> Por padrão, o script server.bat irá gerar 10 mensagens fictícias para cada tópico SNS para que seja possível verificar o processamento da fila na aplicação.
+> Por padrão, o script *server.bat* irá gerar 10 feedbacks fictícios para cada tópico SNS para que seja possível verificar o processamento da fila na aplicação.
 
 # Rotas
 
