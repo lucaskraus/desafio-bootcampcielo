@@ -17,11 +17,14 @@ Para testar a aplicação, será necessário executar dois scripts. Porém, ante
 <img width="366" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/1f87be0e-d29d-49c8-bdcb-1eea32023eb1">
 
 *server.bat*<br/>
-<img width="307" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/e41fbeb5-2abf-4870-a45e-709b7dffebf6">
-
+<img width="306" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/a724bd68-58e9-4e5d-8d40-0630273b427e">
 
 > [!NOTE]
 > Por padrão, o script *server.bat* irá gerar 10 feedbacks fictícios para cada tópico SNS para que seja possível verificar o processamento da fila na aplicação.
+
+<img width="938" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/7885cd65-a9ce-403f-9da0-245651bf4193">
+
+**O servidor irá processar os feedbacks fictícios sequencialmente. Você pode interagir com o front-end enquanto isso acontece.**
 
 # Rotas
 
