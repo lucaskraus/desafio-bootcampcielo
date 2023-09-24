@@ -24,7 +24,7 @@ public class RunnerInicializacao implements ApplicationRunner {
 		
 		int tipoInd = 0; 
 		
-		for (int i = 0; i < 25; i++) {
+		for (int i = 0; i < 10; i++) {
 			feedbackComponent.publicarFeeedback(CustomerFeedbackDTO.builder()//
 					.mensagem(MENSAGEM)//
 					.tipoFeedback(tipos[tipoInd].getCodigo())//
