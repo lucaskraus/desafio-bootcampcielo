@@ -19,6 +19,8 @@ Para testar a aplicação, será necessário executar dois scripts. Porém, ante
 *server.bat*<br/>
 <img width="306" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/a724bd68-58e9-4e5d-8d40-0630273b427e">
 
+Após atualizar os diretórios, execute os scripts.
+
 > [!NOTE]
 > Por padrão, o script *server.bat* irá gerar 10 feedbacks fictícios para cada tópico SNS para que seja possível verificar o processamento da fila na aplicação.
 
