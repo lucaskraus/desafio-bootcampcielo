@@ -1,6 +1,8 @@
 package br.com.ada.cielo.primeirodesafio.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,8 +24,10 @@ public class CustomerFeedback {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Enumerated(EnumType.STRING)
 	private TipoFeedback tipoFeedback;
 	private String mensagem;
+	@Enumerated(EnumType.STRING)
 	private StatusMensagem status;
 
 }

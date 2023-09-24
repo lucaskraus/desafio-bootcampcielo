@@ -1,8 +1,10 @@
 package br.com.ada.cielo.primeirodesafio.components;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -17,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.ada.cielo.primeirodesafio.entities.CustomerFeedback;
 import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackBuilder;
 import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackDTO;
+import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackResumoVO;
 import br.com.ada.cielo.primeirodesafio.modelos.CustomerFeedbackVO;
 import br.com.ada.cielo.primeirodesafio.modelos.enuns.StatusMensagem;
 import br.com.ada.cielo.primeirodesafio.modelos.enuns.TipoFeedback;
@@ -53,7 +56,7 @@ public class FeedbackComponent {
 		topicos.put(TipoFeedback.SUGESTAO, topicoSugestao);
 	}
 
-	@Transactional
+	@Transactional(rollbackFor = Exception.class)
 	public CustomerFeedbackVO publicarFeeedback(CustomerFeedbackDTO feedback) throws Exception {
 		try {
 			CustomerFeedback entity = salvarMensagem(feedback);
@@ -73,10 +76,10 @@ public class FeedbackComponent {
 	private void enviarMensagemParaTopico(CustomerFeedback feedback) throws JsonProcessingException {
 		String mensagem = mapper.writeValueAsString(feedback);
 		String id = feedback.getId().toString();
-		// TODO:verificar regra
-		String groupID = "topico123";
-		snsService.publishMessageToSnsTopic(mensagem, id, groupID, topicos.get(feedback.getTipoFeedback()));
-
+		String groupID = "1234topico";
+		String topico = topicos.get(feedback.getTipoFeedback());
+		
+		snsService.publishMessageToSnsTopic(mensagem, id, groupID, topico);
 	}
 
 	private CustomerFeedback salvarMensagem(CustomerFeedbackDTO feedbackDTO) {
@@ -94,6 +97,15 @@ public class FeedbackComponent {
 	private void alterarStatus(CustomerFeedback feedback, StatusMensagem status) {
 		feedback.setStatus(status);
 		repository.save(feedback);
+	}
+
+	public Map<String, String> getTipoFeedback() {
+		return Arrays.asList(TipoFeedback.values()).stream()//
+		.collect(Collectors.toMap(t -> t.getCodigo(), t -> t.getDescricao()));
+	}
+
+	public List<CustomerFeedbackResumoVO> resumoFeedback() {
+		return repository.getResumoFeedback();
 	}
 
 }
