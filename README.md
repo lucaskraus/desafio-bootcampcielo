@@ -24,9 +24,9 @@ Após atualizar os diretórios, execute os scripts.
 > [!NOTE]
 > Por padrão, o script *server.bat* irá gerar 10 feedbacks fictícios para cada tópico SNS para que seja possível verificar o processamento da fila na aplicação.
 
-<img width="938" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/7885cd65-a9ce-403f-9da0-245651bf4193">
-
 **O servidor irá processar os feedbacks fictícios sequencialmente. Você pode interagir com o front-end enquanto isso acontece.**
+
+<img width="938" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/7885cd65-a9ce-403f-9da0-245651bf4193">
 
 # Rotas
 
