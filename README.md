@@ -12,13 +12,20 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 
 # Configuração de Ambiente
 
-Para testar a aplicação, será necessário executar dois scripts.
+Para testar a aplicação, será necessário executar três scripts. <br/>
 
-*client.bat*<br/>
+<img width="116" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/bdb5d8bb-ba11-4e33-8896-fdc07245026d">
+
+Sequencialmente,
+
+*build.bat* - Configura as dependências da aplicação Maven. <br/>
+<img width="170" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/4cd75bd3-73d0-4163-a78d-37eb9d68ec53">
+
+*server.bat* - Executa o servidor Java para receber e enviar as solicitações. <br/>
+<img width="228" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/4f610a01-6dc0-4041-b07e-7df3f8a17e5d">
+
+*client.bat* - Inicia a aplicação React. <br/>
 <img width="179" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/983b2991-b918-42be-8d40-e437d0f2e547">
-
-*server.bat*<br/>
-<img width="306" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/a724bd68-58e9-4e5d-8d40-0630273b427e">
 
 Após atualizar os diretórios, execute os scripts.
 
