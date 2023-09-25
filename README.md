@@ -12,9 +12,9 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 
 # Configuração de Ambiente
 
-Para testar a aplicação, será necessário executar dois scripts. <br/>
+Para testar a aplicação, será necessário executar dois scripts.
 
-*build.bat* - Configura as dependências da aplicação Maven.
+*build.bat* - Configura as dependências da aplicação Maven. <br/>
 <img width="170" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/4cd75bd3-73d0-4163-a78d-37eb9d68ec53">
 
 *server.bat* - Executa o servidor Java para receber e enviar as solicitações. <br/>
