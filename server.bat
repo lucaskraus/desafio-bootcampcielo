@@ -1,8 +1,4 @@
 @echo off
-
-rem Defina o diretório onde o repositório está localizado
-cd C:\Users\Lucas\Desktop\desafio-bootcampcielo\
-
-java -jar servidor.jar
-
+cd server\target 
+java -jar primeiro-desafio-0.0.1-SNAPSHOT.jar
 pause
