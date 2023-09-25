@@ -19,21 +19,29 @@ public class SQSMessageListenerSugestao extends AbstractSQSMessageListener {
 	@Value("${aws.queue.sugestao}")
 	private String queueSugestao;
 
+	@Value("${aws.queue.dead.sugestao}")
+	private String deadQueueSugestao;
+
 	@Async
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		try {
-			String pathCompleto = String.format(PATH_BASE, region, idConta, queueSugestao);
-			ReceiveMessageRequest receiveRequest = new ReceiveMessageRequest(pathCompleto);
 
-			while (true) {
-				List<Message> messages = sqs.receiveMessage(receiveRequest).getMessages();
-				for (Message message : messages) {
-					processarFeedback(message, pathCompleto);
+		String path = getPath(queueSugestao);
+		String deadPath = getPath(deadQueueSugestao);
+
+		ReceiveMessageRequest receiveRequest = new ReceiveMessageRequest(path);
+
+		while (true) {
+			List<Message> messages = sqs.receiveMessage(receiveRequest).getMessages();
+			for (Message message : messages) {
+				try {
+					processarFeedback(message, path);
+				} catch (Exception e) {
+					log.error("#### Erro ao processar mensagem: {}", e);
+					sqsService.publishMessageToSqs(message.getBody(), deadPath);
+					sqs.deleteMessage(path, message.getReceiptHandle());
 				}
 			}
-		} catch (Exception e) {
-			log.error("#### Erro ao processar mensagem: {}", e);
 		}
 	}
 }

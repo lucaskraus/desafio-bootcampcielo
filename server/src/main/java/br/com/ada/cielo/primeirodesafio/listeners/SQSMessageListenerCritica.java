@@ -19,21 +19,30 @@ public class SQSMessageListenerCritica extends AbstractSQSMessageListener {
 	@Value("${aws.queue.critica}")
 	private String queueCritica;
 
+	@Value("${aws.queue.dead.critica}")
+	private String deadQueueCritica;
+
 	@Async
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
-		try {
-			String pathCompleto = String.format(PATH_BASE, region, idConta, queueCritica);
-			ReceiveMessageRequest receiveRequest = new ReceiveMessageRequest(pathCompleto);
 
-			while (true) {
-				List<Message> messages = sqs.receiveMessage(receiveRequest).getMessages();
-				for (Message message : messages) {
-					processarFeedback(message, pathCompleto);
+		String path = getPath(queueCritica);
+		String deadPath = getPath(deadQueueCritica);
+
+		ReceiveMessageRequest receiveRequest = new ReceiveMessageRequest(path);
+
+		while (true) {
+			List<Message> messages = sqs.receiveMessage(receiveRequest).getMessages();
+			for (Message message : messages) {
+				try {
+					processarFeedback(message, path);
+				} catch (Exception e) {
+					log.error("#### Erro ao processar mensagem: {}", e);
+					sqsService.publishMessageToSqs(message.getBody(), deadPath);
+					sqs.deleteMessage(path, message.getReceiptHandle());
 				}
 			}
-		} catch (Exception e) {
-			log.error("#### Erro ao processar mensagem: {}", e);
 		}
 	}
+
 }

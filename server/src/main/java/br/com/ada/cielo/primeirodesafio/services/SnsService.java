@@ -14,21 +14,20 @@ import lombok.extern.slf4j.Slf4j;
 public class SnsService {
 
 	private final String PATH_BASE = "arn:aws:sns:%s:%s:%s";
-	
+
 	@Autowired
 	private AmazonSNS amazonSNS;
-	
-    @Value("${aws.region}")
-    private String region;
-    
-    @Value("${aws.id.conta}")
-    private String idConta;
 
+	@Value("${aws.region}")
+	private String region;
+
+	@Value("${aws.id.conta}")
+	private String idConta;
 
 	public void publishMessageToSnsTopic(String mensagem, String id, String groupID, String topico) {
-    	
-		String pathCompleto = String.format(PATH_BASE, region, idConta, topico); 
-		
+
+		String pathCompleto = String.format(PATH_BASE, region, idConta, topico);
+
 		log.info("publishMessageToSnsTopic: topico: {}, mensagem: {}", pathCompleto, mensagem);
 
 		PublishRequest publishRequest = new PublishRequest()//

@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.ada.cielo.primeirodesafio.components.FeedbackComponent;
 import br.com.ada.cielo.primeirodesafio.entities.CustomerFeedback;
+import br.com.ada.cielo.primeirodesafio.services.SqsService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -25,6 +26,9 @@ public abstract class AbstractSQSMessageListener implements ApplicationListener<
 
 	@Autowired
 	AmazonSQS sqs;
+	
+	@Autowired 
+	SqsService sqsService;
 
 	@Autowired
 	ObjectMapper mapper;
@@ -56,6 +60,10 @@ public abstract class AbstractSQSMessageListener implements ApplicationListener<
 		TypeReference<Map<String, String>> mapType = new TypeReference<Map<String, String>>() {};
 		Map<String, String> mensagemMap = mapper.readValue(mensagem, mapType);
 		return mapper.readValue(mensagemMap.get("Message"), CustomerFeedback.class);
+	}
+	
+	String getPath(String queue) {
+		return String.format(PATH_BASE, region, idConta, queue);
 	}
 
 }
