@@ -11,10 +11,10 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 
 # Configuração de Ambiente
 
-Para testar a aplicação, será necessário executar dois scripts. Porém, antes da execução, atualize o caminho dos scripts com o diretório onde seu repositório está clonado.
+Para testar a aplicação, será necessário executar dois scripts.
 
 *client.bat*<br/>
-<img width="366" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/1f87be0e-d29d-49c8-bdcb-1eea32023eb1">
+<img width="179" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/983b2991-b918-42be-8d40-e437d0f2e547">
 
 *server.bat*<br/>
 <img width="306" alt="image" src="https://github.com/lucaskraus/desafio-bootcampcielo/assets/72233741/a724bd68-58e9-4e5d-8d40-0630273b427e">
