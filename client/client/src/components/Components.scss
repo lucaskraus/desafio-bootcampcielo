@@ -9,25 +9,27 @@ $aleo: 'Aleo', serif;
     font-family: $aleo;
 }
 
-label{
-    display: block;
-    margin: 1vh;
-}
-
 .formsBox{
-    display: flex;
-    align-items: center;
+    display: flex;  
     flex-direction: column;
     background-color: white;
+    margin-top: 15vh;
     border-radius: 5px;
-    padding: 15px;
-    gap: 3vh;
+    padding: 1.5rem;
+    gap: 2rem;
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        width: 30vw;
+    }
 }
 
 .formsBox form textarea{
     display: block;
-    height: 5vh;
-    width: 40vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .formsBox h2,
@@ -37,6 +39,10 @@ label{
 
 .formsBox img{
     align-self: center;
+    @media screen and (max-width: 768px){
+        height: 10vh;
+        width: 20vw;
+    }
 }
 
 .cardsBox{
@@ -45,6 +51,9 @@ label{
     justify-content: center;
     flex-direction: row;
     gap: 10px;
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+    }
 }
 
 .feedbackCard{
@@ -52,13 +61,20 @@ label{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 120px;
+    width: 150px;
     height: 50px; 
     gap: 10px;
     border: 1px solid #6e6e6e;
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+}
+
+.feedbackCard img{
+    @media screen and (max-width: 768px){
+        height: 2vh;
+        width: 2vw;
+    }
 }
 
 .selected {
@@ -71,15 +87,25 @@ label{
 }
 
 #buttonSubmit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px; 
+    justify-content: center;
     background-color: #017CEB;
     color: #ffffff; 
-    padding: 10px 20px; 
     border: none; 
     border-radius: 4px;  
     transition: background-color 0.3s ease; 
     font-size: 14px; 
-  }
+}
   
-  #buttonSubmit:hover {
+#buttonSubmit:hover {
     background-color: #015EA2; 
-  }
+}
+
+
+label{
+    display: block;
+    margin: 1vh;
+}
