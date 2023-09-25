@@ -8,6 +8,7 @@ Projeto desenvolvido para o bootcamp promovido pela Cielo em parceria com a Ada 
 
 - Node.JS
 - Java (Foi utilizada a versão JDK 17 para o desenvolvimento do desafio)
+- Apache Maven
 
 # Configuração de Ambiente
 
